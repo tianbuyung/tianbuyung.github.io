@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Page</title>
+</head>
+    <body>
+        <H1>Prediksikan investasi mu!!</H1>
+        <H2>Silahkan masukkan data mu</H2>
+        <form action="form.html" method="POST">
+            <p>
+                <label For="name">Name</label><br>
+                <input id="name" name="name" type="text"><br><br>
+                <label For="tahun-lahir">Tahun lahir</label><br>
+                <input id="tahun-lahir" name="tahun-lahir" type="number"><br><br>
+                <label For="pemasukan">Jumlah pemasukan bulanan saat ini</label><br>
+                <input id="pemasukan" name="pemasukan" type="number"><br><br>
+                <label For="pengeluaran">Jumlah pengeluaran bulanan saat ini</label><br>
+                <input id="pengeluaran" name="pengeluaran" type="number"><br><br>
+                <label For="anggaran">Anggaran investasi bulanan</label><br>
+                <input id="anggaran" name="anggaran" type="number"><br><br>
+                <label For="instrumen">Instrumen investasi</label><br>
+                <input list="instrumen" name="instrumen" type="text"><br><br>
+                <datalist id = "instrumen">
+                    <select name="instrumen">
+                        <option value="Saham">Saham</option>
+                        <option value="Obligasi">Obligasi</option>
+                        <option value="Tabungan">Tabungan</option>
+                        <option value="Deposito">Deposito</option>
+                        <option value="Emas">Emas</option>
+                        <option value="Mata Uang">Mata Uang</option>
+                  </select>
+                </datalist>
+            </p>
+            <input type="submit" value="Hitung">    
+            </form>
+    </body>
+</html>
