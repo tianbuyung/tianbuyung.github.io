@@ -1,7 +1,6 @@
 body {
-    background-image: url(img/sample-pattern.png);
-    margin: 0 auto;
-    background-position:center; 
+    background-image: url(../img/sample-pattern.png);
+    margin: 0 auto; 
 }
 
 header {
