@@ -45,7 +45,7 @@ nama = 'Tian';
 tahunLahir = 1991;
 pemasukanBulananSaatini = 10000000;
 pengeluaranBulananSaatini = 4000000;
-anggaranInvestasiBulanan = 0.5;
+anggaranInvestasiBulanan = 0.25;
 pilihanInvestasi = 'Saham'
 usiaPensiun = 60;
 
@@ -84,11 +84,11 @@ inflasi = 0.10;
 
 var index, kenaikanInflasi, kenaikanInvestasi;
 
-index = 0;
+index1 = 0;
 kenaikanInflasi = (1+inflasi);
 kenaikanInvestasi = (1+returnInvestasi);
 
-for (index; index <= lamaInvestasi; index++){
+for (index1; index1 <= lamaInvestasi; index1++){
         anggaranInvestasiTahunan = anggaranInvestasiTahunan*kenaikanInvestasi;
         pengeluaranTahunan = pengeluaranTahunan*kenaikanInflasi;
 }
@@ -116,7 +116,7 @@ var angka3 = Math.round(pengeluaranTahunan - anggaranInvestasiTahunan);
 var rp3 = toRp(angka3);
 
 if (anggaranInvestasiTahunan > pengeluaranTahunan){
-    console.log('Selamat Tuan ' + nama + ', proyeksi hasil investasi Anda selama ' + lamaInvestasi + ' tahun adalah ' + rp1 + ',- dengan pengeluaran Anda adalah sekitar ' + rp2 +',-, nikmati kebahagian di masa pensiun Anda.');
+    console.log('Selamat Tuan ' + nama + ', proyeksi hasil investasi Anda selama ' + lamaInvestasi + ' tahun adalah ' + rp2 + ',- dengan pengeluaran Anda adalah sekitar ' + rp1 +',-, nikmati kebahagian di masa pensiun Anda.');
 } else{
-    console.log('Maaf Tuan ' + nama + ', sepertinya proyeksi hasil investasi Anda selama ' + lamaInvestasi + ' tahun saat ini baru senilai ' + rp1 + ',- belum cukup untuk memenuhi kebutuhan pensiun Anda karena pengeluaran Anda di saat pensiun adalah sekitar ' + rp2 + ',- sehingga butuh tambahanan dana sekitar ' + rp3 +',- agar Anda dapat bahagia di masa pensiun Anda.');
+    console.log('Maaf Tuan ' + nama + ', sepertinya proyeksi hasil investasi Anda selama ' + lamaInvestasi + ' tahun saat ini baru senilai ' + rp2 + ',- belum cukup untuk memenuhi kebutuhan pensiun Anda karena pengeluaran Anda di saat pensiun adalah sekitar ' + rp1 + ',- sehingga butuh tambahanan dana sekitar ' + rp3 +',- agar Anda dapat bahagia di masa pensiun Anda.');
 }
