@@ -39,20 +39,22 @@ IF (aset>kebutuhan)
     ELSE (Maaf Tuan 'Nama', sepertinya hasil investasi anda saat ini belum cukup untuk memenuhi kebutuhan pensiun anda nanti, tetap semangat dan naikkan pendapatan dan anggaran investasi anda)
 */
 
-var nama, tahunLahir, pemasukanBulananSaatini, pengeluaranBulananSaatini, anggaranInvestasiBulanan, pilihanInvestasi, usiaPensiun;
+var nama, tahunLahir, pemasukanBulananSaatini, pengeluaranBulananSaatini, anggaranInvestasiBulanan, pilihanInvestasi, usiaPensiun, myButton;
 
-nama = 'Tian';
-tahunLahir = 1991;
-pemasukanBulananSaatini = 10000000;
-pengeluaranBulananSaatini = 4000000;
-anggaranInvestasiBulanan = 0.25;
-pilihanInvestasi = 'Saham'
-usiaPensiun = 60;
+nama = document.getElementById('name').value;
+tahunLahir = document.getElementById('tahun-lahir').value;
+pemasukanBulananSaatini = document.getElementById('pemasukan').value;
+pengeluaranBulananSaatini = document.getElementById('pengeluaran').value;
+anggaranInvestasiBulanan = document.getElementById('anggaran').value / 100;
+pilihanInvestasi = document.getElementById('instrumen').value;
+usiaPensiun = document.getElementById('usia').value;
+myButton = document.querySelector('button');
 
 var lamaInvestasi, anggaranInvestasiTahunan, pengeluaranTahunan, returnInvestasi, inflasi;
 
-lamaInvestasi = 2017-tahunLahir;
-anggaranInvestasiTahunan = anggaranInvestasiBulanan * (pemasukanBulananSaatini-pengeluaranBulananSaatini) * 12;
+
+lamaInvestasi = 2017 - tahunLahir;
+anggaranInvestasiTahunan = anggaranInvestasiBulanan * (pemasukanBulananSaatini - pengeluaranBulananSaatini) * 12;
 pengeluaranTahunan = pengeluaranBulananSaatini * 12;
 returnInvestasi = 0;
 
@@ -76,7 +78,7 @@ switch (pilihanInvestasi) {
         returnInvestasi = 0.05;
         break;
     default:
-        'Mohon pilih instrumen investasi'
+        'Mohon pilih instrumen investasi';
         break;
 }
 
@@ -84,26 +86,26 @@ inflasi = 0.10;
 
 var index, kenaikanInflasi, kenaikanInvestasi;
 
-index1 = 0;
-kenaikanInflasi = (1+inflasi);
-kenaikanInvestasi = (1+returnInvestasi);
+index = 0;
+kenaikanInflasi = (1 + inflasi);
+kenaikanInvestasi = (1 + returnInvestasi);
 
-for (index1; index1 <= lamaInvestasi; index1++){
-        anggaranInvestasiTahunan = anggaranInvestasiTahunan*kenaikanInvestasi;
-        pengeluaranTahunan = pengeluaranTahunan*kenaikanInflasi;
+for (index; index <= lamaInvestasi; index++) {
+    anggaranInvestasiTahunan = anggaranInvestasiTahunan * kenaikanInvestasi;
+    pengeluaranTahunan = pengeluaranTahunan * kenaikanInflasi;
 }
 
-function toRp(a,b,c,d,e) {
-  e = function(f) {
-    return f.split('').reverse().join('');
-  }
-    b = e(parseInt(a,10).toString());
+function toRp(a, b, c, d, e) {
+    e = function (f) {
+        return f.split('').reverse().join('');
+    };
+    b = e(parseInt(a, 10).toString());
     for (c = 0, d = ''; c < b.length; c++) {
-      d += b [c];
-      if((c + 1) % 3 === 0 && c !== (b.length - 1)){
-        d += '.';
+        d += b[c];
+        if ((c + 1) % 3 === 0 && c !== (b.length - 1)) {
+            d += '.';
         }
-    }return 'Rp. ' + e (d) + ',00';
+    } return 'Rp. ' + e(d) + ',00';
 }
 
 var angka1 = Math.round(pengeluaranTahunan);
@@ -115,8 +117,10 @@ var rp2 = toRp(angka2);
 var angka3 = Math.round(pengeluaranTahunan - anggaranInvestasiTahunan);
 var rp3 = toRp(angka3);
 
-if (anggaranInvestasiTahunan > pengeluaranTahunan){
-    console.log('Selamat Tuan ' + nama + ', proyeksi hasil investasi Anda selama ' + lamaInvestasi + ' tahun adalah ' + rp2 + ',- dengan pengeluaran Anda adalah sekitar ' + rp1 +',-, nikmati kebahagian di masa pensiun Anda.');
-} else{
-    console.log('Maaf Tuan ' + nama + ', sepertinya proyeksi hasil investasi Anda selama ' + lamaInvestasi + ' tahun saat ini baru senilai ' + rp2 + ',- belum cukup untuk memenuhi kebutuhan pensiun Anda karena pengeluaran Anda di saat pensiun adalah sekitar ' + rp1 + ',- sehingga butuh tambahanan dana sekitar ' + rp3 +',- agar Anda dapat bahagia di masa pensiun Anda.');
+function hitung() {
+    if (anggaranInvestasiTahunan > pengeluaranTahunan) {
+        console.log('Selamat Tuan ' + nama + ', proyeksi hasil investasi Anda selama ' + lamaInvestasi + ' tahun adalah ' + rp2 + ',- dengan pengeluaran Anda adalah sekitar ' + rp1 + ',-, nikmati kebahagian di masa pensiun Anda.');
+    } else {
+        console.log('Maaf Tuan ' + nama + ', sepertinya proyeksi hasil investasi Anda selama ' + lamaInvestasi + ' tahun saat ini baru senilai ' + rp2 + ',- belum cukup untuk memenuhi kebutuhan pensiun Anda karena pengeluaran Anda di saat pensiun adalah sekitar ' + rp1 + ',- sehingga butuh tambahanan dana sekitar ' + rp3 + ',- agar Anda dapat bahagia di masa pensiun Anda.');
+    }
 }

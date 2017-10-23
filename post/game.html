@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Game Page</title>
+</head>
+    <body>
+        <script src="main.js"></script>
+        <h1>Prediksikan investasi mu!!</h1>
+        <h2>Silahkan masukkan data mu</h2>
+        <form action="form.html" method="POST">
+            <p>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text"><br><br>
+                <label for="tahun-lahir">Tahun lahir</label>
+                <input id="tahun-lahir" name="tahun-lahir" type="number" min="0"><br><br>
+                <label for="pemasukan">Pemasukan bulanan saat ini Rp </label>
+                <input id="pemasukan" name="pemasukan" type="number" min="0"><br><br>
+                <label for="pengeluaran">Pengeluaran bulanan saat ini Rp</label>
+                <input id="pengeluaran" name="pengeluaran" type="number" min="0"><br><br>
+                <label for="anggaran">Anggaran investasi bulanan</label>
+                <input id="anggaran" name="anggaran" type="number" step="0.00" min="0" max="100"> <span>%</span><br><br>
+                <label for="instrumen">Instrumen investasi</label>
+                <input list="instrumen" name="instrumen" type="text"><br><br>
+                <datalist id = "instrumen">
+                    <select name="instrumen">
+                        <option value="Saham">Saham</option>
+                        <option value="Obligasi">Obligasi</option>
+                        <option value="Tabungan">Tabungan</option>
+                        <option value="Deposito">Deposito</option>
+                        <option value="Emas">Emas</option>
+                        <option value="Mata Uang">Mata Uang</option>
+                  </select>
+                </datalist>
+                <label for="usia">Usia Pensiun</label>
+                <input id="usia" name="usia" type="number" min="0"> Tahun<br><br>
+            </p>
+            <button onclick="hitung()">Hitung</button>
+            </form>
+    </body>
+</html>
